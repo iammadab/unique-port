@@ -11,6 +11,8 @@ Write your application once, and be sure it always finds a port to run on
 
 ## API
 
+#### with node http server...
+
 ```javascript
     const uniquePort = require("unique-port")
     const server = require("http").createServer()
@@ -20,9 +22,9 @@ Write your application once, and be sure it always finds a port to run on
 
 ```
 
+#### or with express...
 
 ```javascript
-    // Or with express
     const express = require("unique-port")
     const app = require("express")()
 
