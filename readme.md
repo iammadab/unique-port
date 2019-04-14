@@ -42,7 +42,7 @@ If it fails, its moves by 1. To 3001 and so on.
 
 ### Want to change the default port?
 
-uniquePort(server, port)
+#### uniquePort(server, port)
 
 ```javascript
     const uniquePort = require("unique-port")
@@ -54,8 +54,8 @@ uniquePort(server, port)
 
 ### Want to change the step?
 
-uniquePort(server, port, step)
-
+#### uniquePort(server, port, step)
+    
 ```javascript
     const uniquePort = require("unique-port")
     const server = require("express")()
