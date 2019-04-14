@@ -1,0 +1,34 @@
+Unique Port
+
+The goal is to allow an application to listen at a unique port, a port that is free. Starting from a default port.
+
+The traditional way is to use 
+
+server.listen(port)
+
+The issue is that the porrt might be taken by another application, and when developing tools for other developers chances are that they already have servers listening at other ports. So applications that can't adapt won't be robout enough.
+
+Unique port is a solution that allows applications to detect and adapt 
+
+API Analysis
+------------
+
+You ask a server to listen by using server.listen
+We need to detect if the server listening failed and then try again.
+
+So server.listen will be called more than once. Since it is to be automated, then our solution needs access to the server itself. Then an optional default port and maybe an optional step value
+
+so
+uniquePort(server) // uses its own default port, and default step
+uniquePort(server, 3000) // uses 3000 as the default port, but uses the default step
+uniquePort(server, 3000, 100) // starts at 3000 and steps by 100 for future trials
+
+
+Logic
+-----
+
+The process.on("uncaughtException") allows me to catch errors that happen and where not caught.
+I can then filter the errors for the one corresponding to used port.
+If I get that I now increment the counter and then try again recursively
+
+I am also thinking of using a try catch statement, so that I can make this program more robost
