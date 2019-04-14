@@ -1,3 +1,5 @@
+const server = require("http").createServer()
+
 const uniquePort = function(server, port=3000, step=1){
 	let errors = validateArgs(server, port, step)
 
@@ -16,13 +18,12 @@ const uniquePort = function(server, port=3000, step=1){
 
 
 	startServer(server, port)
-
 }
 
 
 
 
-
+uniquePort(server)
 
 
 
@@ -34,6 +35,8 @@ const uniquePort = function(server, port=3000, step=1){
 
 function startServer(server, port){
 	server.listen(port)
+	if(server.listening)
+		console.log("Server listening at port " + port)
 }
 
 function updatePort(port, step){
