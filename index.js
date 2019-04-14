@@ -1,6 +1,4 @@
-const server = require("http").createServer()
-
-const uniquePort = function(server, port=3000, step=100){
+const uniquePort = function(server, port=3000, step=1){
 	let errors = validateArgs(server, port, step)
 
 	// TODO proper library error throwing
@@ -9,11 +7,19 @@ const uniquePort = function(server, port=3000, step=100){
 		return false
 	}
 
-	server.listen(port)
+	process.on("uncaughtException", function(err){
+		if(err.code == "EADDRINUSE"){
+			port = updatePort(port, step)
+			startServer(server, port)
+		}
+	})
+
+
+	startServer(server, port)
+
 }
 
 
-uniquePort(server)
 
 
 
@@ -26,10 +32,13 @@ uniquePort(server)
 
 
 
+function startServer(server, port){
+	server.listen(port)
+}
 
-
-
-
+function updatePort(port, step){
+	return port + step
+}
 
 function validateArgs(server, port, step){
 	let errors = []
