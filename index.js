@@ -1,7 +1,6 @@
 const uniquePort = function(server, port=3000, step=1){
 	let errors = validateArgs(server, port, step)
 
-	// TODO proper library error throwing
 	if(errors.length > 0){
 		console.log(errors.join("\n"))
 		return false
@@ -13,7 +12,6 @@ const uniquePort = function(server, port=3000, step=1){
 			startServer(server, port)
 		}
 	})
-
 
 	startServer(server, port)
 }
