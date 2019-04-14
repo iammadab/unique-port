@@ -37,7 +37,10 @@ By default, unique port tires to serve your application at port 3000.
 
 If it fails, its moves by 1. To 3001 and so on.
 
-### Want to change the default port
+#### Default port : 3000
+#### Default step : 1
+
+### Want to change the default port?
 
 uniquePort(server, port)
 
@@ -50,6 +53,8 @@ uniquePort(server, port)
 ```
 
 ### Want to change the step?
+
+uniquePort(server, port, step)
 
 ```javascript
     const uniquePort = require("unique-port")
