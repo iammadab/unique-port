@@ -62,3 +62,9 @@ uniquePort(server, port)
 This tries to run the server from port 4000 but then steps by 100
 
 So it tries 4000, then 4100 and so on until one is found
+
+
+### Author
+Wisdom Ogwu (iammadab)
+
+[Twitter](https://twitter.com/iammadab)
