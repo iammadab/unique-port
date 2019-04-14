@@ -1,6 +1,3 @@
-const http = require("http")
-const server = require("http").createServer()
-
 const uniquePort = function(server, port=3000, step=1){
 	let errors = validateArgs(server, port, step)
 
@@ -24,10 +21,6 @@ const uniquePort = function(server, port=3000, step=1){
 
 
 
-uniquePort(server)
-
-
-
 
 
 
@@ -35,7 +28,17 @@ uniquePort(server)
 
 
 function startServer(server, port){
-	server.listen(port)
+	const application = server.listen(port, function(){
+		if(application.address())
+			alertUser(application.address().port)
+	})
+}
+
+function alertUser(port){
+	if(!alertUser.done){
+		console.log("Application running at port " + port)
+		alertUser.done = true
+	}
 }
 
 function updatePort(port, step){
