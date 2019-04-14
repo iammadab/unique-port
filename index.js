@@ -56,10 +56,10 @@ function validateArgs(server, port, step){
 		return errors
 	}
 
-	// function validateStep(step){
-	// 	let errors = []
-	// 	if(isNaN(+step))
-	// 		errors.push("Expected step to be a number")
-	// 	return errors
-	// }
+	function validateStep(step){
+		let errors = []
+		if(isNaN(+step))
+			errors.push("Expected step to be a number")
+		return errors
+	}
 }
