@@ -49,12 +49,12 @@ function validateArgs(server, port, step){
 		return errors
 	}
 
-	// function validatePort(port){
-	// 	let errors = []
-	// 	if(isNaN(+port))
-	// 		errors.push("Expected port to be a number")
-	// 	return errors
-	// }
+	function validatePort(port){
+		let errors = []
+		if(isNaN(+port))
+			errors.push("Expected port to be a number")
+		return errors
+	}
 
 	// function validateStep(step){
 	// 	let errors = []
