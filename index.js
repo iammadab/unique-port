@@ -19,7 +19,7 @@ const uniquePort = function(server, port=3000, step=1){
 }
 
 
-
+module.exports = uniquePort
 
 
 
