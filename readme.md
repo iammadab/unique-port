@@ -18,7 +18,12 @@ Write your application once, and be sure it always finds a port to run on
     // Run the server on a unique port
     uniquePort(server)
 
-    // With express
+```
+
+
+```javascript
+    // Or with express
+    const express = require("unique-port")
     const app = require("express")()
 
     uniquePort(app)
