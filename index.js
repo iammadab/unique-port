@@ -1,19 +1,21 @@
 const uniquePort = function(server, port=3000, step=1){
-	let errors = validateArgs(server, port, step)
+	return new Promise(function(resolve, reject){
+		let errors = validateArgs(server, port, step)
 
-	if(errors.length > 0){
-		console.log(errors.join("\n"))
-		return false
-	}
-
-	process.on("uncaughtException", function(err){
-		if(err.code == "EADDRINUSE"){
-			port = updatePort(port, step)
-			startServer(server, port)
+		if(errors.length > 0){
+			console.log(errors.join("\n"))
+			return false
 		}
-	})
 
-	startServer(server, port)
+		process.on("uncaughtException", function(err){
+			if(err.code == "EADDRINUSE"){
+				port = updatePort(port, step)
+				startServer(server, port, resolve)
+			}
+		})
+
+		startServer(server, port, resolve)
+	})
 }
 
 
@@ -25,10 +27,12 @@ module.exports = uniquePort
 
 
 
-function startServer(server, port){
+function startServer(server, port, resolver){
 	const application = server.listen(port, function(){
-		if(application.address())
+		if(application.address()){
 			alertUser(application.address().port)
+			resolver(application.address().port)
+		}
 	})
 }
 
