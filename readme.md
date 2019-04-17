@@ -29,7 +29,7 @@ Npm: https://www.npmjs.com/package/unique-port
 #### or with express...
 
 ```javascript
-    const express = require("unique-port")
+    const uniquePort = require("unique-port")
     const app = require("express")()
 
     uniquePort(app)
