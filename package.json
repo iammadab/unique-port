@@ -1,6 +1,6 @@
 {
   "name": "unique-port",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Guarantees your server runs on a unique port",
   "main": "index.js",
   "scripts": {
