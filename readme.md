@@ -10,7 +10,7 @@ Npm: https://www.npmjs.com/package/unique-port
 ## Installation
 
 ```javascript
-    npm install unique-port
+    npm install unique-port --save
 ```
 
 ## API
